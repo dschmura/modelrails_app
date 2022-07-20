@@ -71,8 +71,35 @@ Other enhancements include;
 
 ## Getting Started
 
-Clone the repository
-run bin/setup (rename the app)
-run bin/dev 
+### Creating a new application from this template
+  - Select 'Use this template'
+  - enter a name for your project for the repository
+  - clone the repository to your development machine 
 
+    ```git clone git@github.com:your_github_username/app_name.git ```
 
+  - enter the app directory
+    ``` cd app_name ```
+
+  - rename the app using Find and Replace 
+
+    ```
+    $ grep -rl modelrails  | xargs sed -i '' -e s@modelrails@app_name@g
+    $ grep -rl MODELRAILS_APP  | xargs sed -i '' -e s@MODELRAILS_APP@APP_NAME@g
+    $ grep -rl ModelrailsApp  | xargs sed -i '' -e s@ModelrailsApp@AppName@g  
+    ```
+
+### Updating an existing application from this template 
+  > ** Only for applications created using this template by following the steps above.
+  
+  - Add the template as a remote origin
+    ```git remote add template https://github.com/dschmura/modelrails_app ```
+    
+  - Get all of the changes
+
+    ```
+      $ git fetch --all 
+      $ git pull
+      $ git merge template/main --allow-unrelated-histories ```
+
+  - Resolve merge conflicts and create a merge commit
