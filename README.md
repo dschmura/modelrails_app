@@ -93,7 +93,7 @@ Other enhancements include;
   > ** Only for applications created using this template by following the steps above.
   
   - Add the template as a remote origin
-    ```git remote add template https://github.com/dschmura/modelrails_app ```
+    ```$ git remote add template https://github.com/dschmura/modelrails_app ```
     
   - Get all of the changes
 
