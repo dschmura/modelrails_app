@@ -49,6 +49,8 @@ gem "bootsnap", require: false
 gem "haml-rails"
 gem "inline_svg"
 
+gem "devise", "~> 4.8"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -79,3 +81,4 @@ group :test do
   gem 'selenium-webdriver'
    gem "webdrivers"
 end
+

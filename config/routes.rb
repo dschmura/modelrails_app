@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   scope controller: :static_pages do
     get :about
