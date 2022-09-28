@@ -26,8 +26,6 @@
           
         .hidden.sm:block.sm:ml-6
           .flex.space-x-4
-            
-            -# = link_to "Courses", courses_path, class: "text-cyan-50 hover:bg-gray-700 hover:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium"
             / Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white"
             = link_to "About", about_path, class: "text-cyan-50 hover:bg-gray-700 hover:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium"
             = link_to "Contact", contact_path, class: "text-cyan-50 hover:bg-gray-700 hover:text-cyan-300 px-2 py-2 rounded-md text-lg font-medium"
@@ -38,7 +36,8 @@
             %div
               %button#user-menu-button.bg-gray-800.flex.text-sm.rounded-full.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{"aria-expanded" => "false", "aria-haspopup" => "true", "data-action" => "click->dropdown#toggle click@window->dropdown#hide", "data-dropdown-target" => "button", role: "button", type: "button"}
                 %span.sr-only Open user menu
-                %img.h-8.w-8.rounded-full{alt: current_user, src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}/
+                
+                = image_tag avatar_url_for(current_user), class: " h-8 w-8 rounded-full", alt: "#{current_user}" 
             /
               Dropdown menu, show/hide based on menu state.
               
