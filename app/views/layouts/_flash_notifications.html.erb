@@ -1,6 +1,6 @@
 <div class="fixed inset-x-0 top-10 mt-4  flex flex-col  items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none block group">
   <% flash.each do |type, message| %>
-    <div data-controller="alert" data-alert-show-class="translate-x-0 opacity-100" data-alert-hide-class="translate-x-full opacity-0" class="max-w-sm w-full my-1 shadow-lg px-4 py-3 rounded-lg relative  border-l-4  text-white pointer-events-auto transition translate-x-full transform ease-in-out duration-1000 opacity-0 <%= tailwind_classes_for(type) %>">
+    <div data-controller="alert" data-alert-show-class="translate-x-0 opacity-100" data-alert-hide-class="translate-x-full opacity-0" class="max-w-sm w-full my-1 shadow-lg px-4 py-3 rounded-lg relative  border-l-4  text-white pointer-events-auto transition translate-x-full transform ease-in-out duration-500 opacity-0 <%= tailwind_classes_for(type) %>">
         <div class="flex items-start">
           <div class="ml-3 w-0 flex-1 pt-0.5">
             <p class="text-sm leading-5 font-medium">
