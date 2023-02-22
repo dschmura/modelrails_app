@@ -7,4 +7,14 @@ body[data-environment="development"] img[alt=""], body[data-environment="develop
   @apply border-4 border-red-700 border-dotted p-2; }
 
 .skip-to-content-link{
-  @apply sr-only font-bold text-2xl text-white focus-visible:not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline; }
+  @apply sr-only font-bold text-2xl text-white focus-visible:not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline; }  
+
+
+#error_explanation {
+  @apply  border border-red-800 bg-red-50 p-4 rounded-lg mb-6; }
+
+#error_explanation h2 {
+  @apply pb-1  font-bold text-lg text-sky-700 ; }
+
+#error_explanation ul {
+  @apply list-disc list-inside space-y-1 pb-6 text-red-700; }
