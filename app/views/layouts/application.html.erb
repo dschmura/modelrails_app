@@ -12,6 +12,12 @@
     <% if Rails.env.development? %>
       <%= javascript_include_tag "hotwire-livereload", defer: true %>
     <% end %>
+
+    <% if content_for? :head %>
+      <%= yield :head %>
+    <% end %>
+
+    <base href="<%= root_url %>" />
   </head>
 
   <body <%= "data-environment=#{Rails.env}" %>  >
