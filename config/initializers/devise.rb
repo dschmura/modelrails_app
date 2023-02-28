@@ -31,6 +31,18 @@ Devise.setup do |config|
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
+  # OmniAuth Providers
+  config.omniauth :google_oauth2, Rails.application.credentials.google_client_id, Rails.application.credentials.google_client_secret, scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+
+  config.omniauth :facebook, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
+  config.omniauth :twitter, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
+  config.omniauth :github, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
+  config.omniauth :shibboleth, {:uid_field => 'eppn',
+    :info_fields => {:email => 'mail', :name => 'cn', :last_name => 'sn'},
+    :extra_fields => [:schacHomeOrganization]
+}
+  # config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
+
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
