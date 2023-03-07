@@ -20,6 +20,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     handle_auth "Google"
   end
 
+  def saml
+    handle_auth "Saml"
+  end
+  
   private
 
   def handle_auth(kind)
@@ -36,6 +40,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect user, event: :authentication
       set_flash_message :notice, :success, kind: kind
     end
+  end
+  
+  def user_is_stale?
+    return unless user_signed_in?
+    current_user.last_sign_in_at < 15.minutes.ago
   end
 
   def auth
@@ -72,10 +81,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def create_user
-    User.create(
+    user = User.create(
       email: auth.info.email,
       #name: auth.info.name,
       password: Devise.friendly_token[0,20]
+    )
+    create_user_services(user)
+  end
+
+  def create_user_services(user)
+    user.omni_auth_service.create(
+      provider: auth.provider,
+      uid: auth.uid,
+      expires_at: Time.at(auth.credentials.expires_at),
+      access_token: auth.credentials.token,
     )
   end
 
