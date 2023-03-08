@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   scope controller: :static_pages do
     get :about
     get :contact
+    get :docs
     get :index
     get :privacy
   end
