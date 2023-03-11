@@ -50,7 +50,10 @@ gem "haml-rails"
 gem "inline_svg"
 
 gem "devise", "~> 4.8"
+gem "omniauth-google-oauth2"
+gem 'omniauth-shibboleth'
 
+gem "omniauth-rails_csrf_protection"
 # Use Sass to process CSS
 # gem "sassc-rails"
 

@@ -32,15 +32,36 @@ Devise.setup do |config|
   # config.parent_mailer = 'ActionMailer::Base'
 
   # OmniAuth Providers
-  config.omniauth :google_oauth2, Rails.application.credentials.google_client_id, Rails.application.credentials.google_client_secret, scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
 
-  config.omniauth :facebook, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
-  config.omniauth :twitter, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
-  config.omniauth :github, "Rails.application.credentials.google_client_id", "Rails.application.credentials.google_client_secret"
-  config.omniauth :shibboleth, {:uid_field => 'eppn',
-    :info_fields => {:email => 'mail', :name => 'cn', :last_name => 'sn'},
-    :extra_fields => [:schacHomeOrganization]
-}
+  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID], Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+
+  consumer_service_url = "dev_assertion_consumer_service_url"
+  entity_id = "dev_entity_id"
+  idp_login_url = "login_url"
+  idp_logout_url = "logout_url"
+  idp_fingerprint = "fingerprint"
+
+  config.omniauth :shibboleth,
+      :assertion_consumer_service_url     => consumer_service_url,
+      :issuer                             => entity_id,
+      :idp_sso_service_url                 => idp_login_url,
+      :idp_slo_service_url                 => idp_logout_url,
+      :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+      :attribute_statements               => {email: ['urn:oid:0.9.2342.19200300.100.1.3'],
+                                              name: ['urn:oid:2.16.840.1.113730.3.1.241'],
+                                              uid: ['urn:oid:0.9.2342.19200300.100.1.1'],
+                                              person_affiliation: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.1'],
+                                              principal_name: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.6']},
+      :request_attributes                 => {},
+      :idp_cert_fingerprint => idp_fingerprint,
+      :idp_cert_fingerprint_algorithm => 'http://www.w3.org/2000/09/xmldsig#sha256',
+      :allowed_clock_drift                => 10,
+      :private_key                        => Rails.application.credentials.service_provider_private_key,
+      :certificate                        => Rails.application.credentials.service_provider_certificate,
+      :security                           => {want_assertions_signed: true, want_assertions_encrypted: true}
+
+      
+
   # config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
 
   # ==> ORM configuration
