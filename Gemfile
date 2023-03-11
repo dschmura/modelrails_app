@@ -74,7 +74,7 @@ group :development do
   gem "web-console"
   gem "hotwire-livereload", "~> 1.1"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
+  gem 'rack-mini-profiler', require: ['enable_rails_patches', 'rack-mini-profiler']
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
