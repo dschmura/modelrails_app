@@ -67,6 +67,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem "bullet", "~> 7.0"
   gem "annotate", github: "excid3/annotate_models", branch: "rails7"
+  gem "standard"
 end
 
 group :development do
