@@ -27,7 +27,6 @@ gem "stimulus-rails"
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
 
-
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
@@ -41,7 +40,7 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -51,7 +50,7 @@ gem "inline_svg"
 
 gem "devise", "~> 4.8"
 gem "omniauth-google-oauth2"
-gem 'omniauth-shibboleth'
+gem "omniauth-shibboleth"
 
 gem "omniauth-rails_csrf_protection"
 # Use Sass to process CSS
@@ -62,9 +61,9 @@ gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem 'rspec-rails', '~> 6.0.0.rc1' 
-  gem 'guard-rspec', require: false
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "rspec-rails", "~> 6.0.0.rc1"
+  gem "guard-rspec", require: false
   gem "bullet", "~> 7.0"
   gem "annotate", github: "excid3/annotate_models", branch: "rails7"
   gem "standard"
@@ -75,15 +74,14 @@ group :development do
   gem "web-console"
   gem "hotwire-livereload", "~> 1.1"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  gem 'rack-mini-profiler', require: ['enable_rails_patches', 'rack-mini-profiler']
-  gem 'letter_opener_web', '~> 2.0'
+  gem "rack-mini-profiler", require: ["enable_rails_patches", "rack-mini-profiler"]
+  gem "letter_opener_web", "~> 2.0"
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
 
 group :test do
   gem "capybara"
-  gem 'selenium-webdriver'
-   gem "webdrivers"
+  gem "selenium-webdriver"
+  gem "webdrivers"
 end
-
