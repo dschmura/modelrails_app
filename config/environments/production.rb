@@ -3,6 +3,21 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+
+    config.action_mailer.delivery_method = :sendmail
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.default_options = {from: "#{ t :app_name}@umich.edu"}
+
+    config.action_mailer.smtp_settings = {address: { t :app_name}}
+    config.action_mailer.smtp_settings = {
+    address: Rails.application.credentials.production_mail[:STANDARDRB_EMAIL_SERVER],
+    domain: Rails.application.credentials.production_mail[:STANDARDRB_EMAIL_DOMAIN],
+    user_name: Rails.application.credentials.production_mail[:STANDARDRB_EMAIL_USERNAME],
+    password: Rails.application.credentials.production_mail[:STANDARDRB_EMAIL_PASSWORD],
+    authentication: :login,
+    enable_starttls_auto: "true",
+    port: "587",
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
