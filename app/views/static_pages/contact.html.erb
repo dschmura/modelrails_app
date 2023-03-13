@@ -1,4 +1,9 @@
-<div>
-  <h1 class="font-bold text-4xl">StaticPages#contact</h1>
-  <p>Find me in app/views/static_pages/contact.html.erb</p>
-</div>
+<div class="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md ">
+    <%= link_to root_path, class: "group block mx-auto w-auto" do %>
+
+    <% end %>
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Contact Us</h2>
+  </div>
+    <%= render 'feedback_mailer/feedback_form' %>
+  </div>
