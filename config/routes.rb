@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
 
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
   scope controller: :static_pages do
     get :about
     get :contact
@@ -16,4 +18,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "static_pages#index"
+  resources "feedbacks", only: [:create]  
 end

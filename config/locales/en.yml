@@ -33,3 +33,4 @@ en:
   hello: "Hello world"
   app_name: "Model Rails Template"
   app_description: "Model Rails Template is a application template."
+  feedback_mailer.from: "lsa-was-rails-devs@umich.edu"
