@@ -1,4 +1,3 @@
-
 # frozen_string_literal: true
 
 # Assuming you have not yet modified this file, each configuration option below
@@ -23,7 +22,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -42,25 +41,23 @@ Devise.setup do |config|
   idp_fingerprint = "fingerprint"
 
   config.omniauth :shibboleth,
-      :assertion_consumer_service_url     => consumer_service_url,
-      :issuer                             => entity_id,
-      :idp_sso_service_url                 => idp_login_url,
-      :idp_slo_service_url                 => idp_logout_url,
-      :name_identifier_format             => "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-      :attribute_statements               => {email: ['urn:oid:0.9.2342.19200300.100.1.3'],
-                                              name: ['urn:oid:2.16.840.1.113730.3.1.241'],
-                                              uid: ['urn:oid:0.9.2342.19200300.100.1.1'],
-                                              person_affiliation: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.1'],
-                                              principal_name: ['urn:oid:1.3.6.1.4.1.5923.1.1.1.6']},
-      :request_attributes                 => {},
-      :idp_cert_fingerprint => idp_fingerprint,
-      :idp_cert_fingerprint_algorithm => 'http://www.w3.org/2000/09/xmldsig#sha256',
-      :allowed_clock_drift                => 10,
-      :private_key                        => Rails.application.credentials.service_provider_private_key,
-      :certificate                        => Rails.application.credentials.service_provider_certificate,
-      :security                           => {want_assertions_signed: true, want_assertions_encrypted: true}
-
-      
+    assertion_consumer_service_url: consumer_service_url,
+    issuer: entity_id,
+    idp_sso_service_url: idp_login_url,
+    idp_slo_service_url: idp_logout_url,
+    name_identifier_format: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+    attribute_statements: {email: ["urn:oid:0.9.2342.19200300.100.1.3"],
+                           name: ["urn:oid:2.16.840.1.113730.3.1.241"],
+                           uid: ["urn:oid:0.9.2342.19200300.100.1.1"],
+                           person_affiliation: ["urn:oid:1.3.6.1.4.1.5923.1.1.1.1"],
+                           principal_name: ["urn:oid:1.3.6.1.4.1.5923.1.1.1.6"]},
+    request_attributes: {},
+    idp_cert_fingerprint: idp_fingerprint,
+    idp_cert_fingerprint_algorithm: "http://www.w3.org/2000/09/xmldsig#sha256",
+    allowed_clock_drift: 10,
+    private_key: Rails.application.credentials.service_provider_private_key,
+    certificate: Rails.application.credentials.service_provider_certificate,
+    security: {want_assertions_signed: true, want_assertions_encrypted: true}
 
   # config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
 
@@ -68,7 +65,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -295,7 +292,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ["*/*", :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
