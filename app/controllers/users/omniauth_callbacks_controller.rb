@@ -5,25 +5,25 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_reader :omni_auth_service, :user
 
   def facebook
-    handle_auth "Facebook"
+    handle_auth 'Facebook'
   end
 
   def twitter
-    handle_auth "Twitter"
+    handle_auth 'Twitter'
   end
 
-  def github _lockable
-    handle_auth "Github"
+  def github(_lockable)
+    handle_auth 'Github'
   end
 
   def google_oauth2
-    handle_auth "Google"
+    handle_auth 'Google'
   end
 
   def saml
-    handle_auth "Saml"
+    handle_auth 'Saml'
   end
-  
+
   private
 
   def handle_auth(kind)
@@ -38,12 +38,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to edit_user_registration_path
     else
       sign_in_and_redirect user, event: :authentication
-      set_flash_message :notice, :success, kind: kind
+      set_flash_message :notice, :success, kind:
     end
   end
-  
+
   def user_is_stale?
     return unless user_signed_in?
+
     current_user.last_sign_in_at < 15.minutes.ago
   end
 
@@ -62,7 +63,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @user = omni_auth_service.user
     elsif User.where(email: auth.info.email).any?
       # 5. User is logged out and they login to a new account which doesn't match their old one
-      flash[:alert] = "An account with this email already exists. Please sign in with that account before connecting your #{auth.provider.titleize} account."
+      flash[:alert] =
+"An account with this email already exists. Please sign in with that account before connecting your #{auth.provider.titleize} account."
       redirect_to new_user_session_path
     else
       @user = create_user
@@ -72,19 +74,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def omni_auth_service_attrs
     expires_at = auth.credentials.expires_at.present? ? Time.at(auth.credentials.expires_at) : nil
     {
-        provider: auth.provider,
-        uid: auth.uid,
-        expires_at: expires_at,
-        access_token: auth.credentials.token,
-        access_token_secret: auth.credentials.secret,
+      provider: auth.provider,
+      uid: auth.uid,
+      expires_at:,
+      access_token: auth.credentials.token,
+      access_token_secret: auth.credentials.secret
     }
   end
 
   def create_user
     user = User.create(
       email: auth.info.email,
-      #name: auth.info.name,
-      password: Devise.friendly_token[0,20]
+      # name: auth.info.name,
+      password: Devise.friendly_token[0, 20]
     )
     create_user_services(user)
   end
@@ -94,8 +96,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       provider: auth.provider,
       uid: auth.uid,
       expires_at: Time.at(auth.credentials.expires_at),
-      access_token: auth.credentials.token,
+      access_token: auth.credentials.token
     )
   end
-
 end
