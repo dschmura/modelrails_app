@@ -77,6 +77,7 @@ group :development do
   gem "rack-mini-profiler", require: ["enable_rails_patches", "rack-mini-profiler"]
   gem "letter_opener_web", "~> 2.0"
   gem 'rails-erd'
+  gem "ruby-lsp", require: false
 end
 
 group :test do
