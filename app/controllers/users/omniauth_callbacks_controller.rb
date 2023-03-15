@@ -5,23 +5,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_reader :omni_auth_service, :user
 
   def facebook
-    handle_auth 'Facebook'
+    handle_auth "Facebook"
   end
 
   def twitter
-    handle_auth 'Twitter'
+    handle_auth "Twitter"
   end
 
   def github(_lockable)
-    handle_auth 'Github'
+    handle_auth "Github"
   end
 
   def google_oauth2
-    handle_auth 'Google'
+    handle_auth "Google"
   end
 
   def saml
-    handle_auth 'Saml'
+    handle_auth "Saml"
   end
 
   private
@@ -49,7 +49,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def auth
-    request.env['omniauth.auth']
+    request.env["omniauth.auth"]
   end
 
   def set_omni_auth_service
@@ -64,7 +64,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     elsif User.where(email: auth.info.email).any?
       # 5. User is logged out and they login to a new account which doesn't match their old one
       flash[:alert] =
-"An account with this email already exists. Please sign in with that account before connecting your #{auth.provider.titleize} account."
+        "An account with this email already exists. Please sign in with that account before connecting your #{auth.provider.titleize} account."
       redirect_to new_user_session_path
     else
       @user = create_user

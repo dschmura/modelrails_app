@@ -17,5 +17,4 @@ class ApplicationController < ActionController::Base
   def create_feedback
     @feedback = Feedback.new
   end
-  
 end
