@@ -76,7 +76,7 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler", require: ["enable_rails_patches", "rack-mini-profiler"]
   gem "letter_opener_web", "~> 2.0"
-  gem 'rails-erd'
+  gem "rails-erd"
   gem "ruby-lsp", require: false
 end
 
