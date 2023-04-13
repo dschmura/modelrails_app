@@ -2,19 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* missing_alt_tags */
-body[data-environment="development"] img[alt=""], body[data-environment="development"] img:not([alt]) {
-  @apply border-4 border-red-700 border-dotted p-2; }
+.field_with_errors {
+  @apply border-2 border-red-700;
+}
 
-.skip-to-content-link{
-  @apply sr-only font-bold text-2xl text-white focus-visible:not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline; }  
+@layer base {
+  .branding-logo {
+    @apply text-umich-maze group-hover: opacity-90;
+  }
 
+  .branding-wordmark {
+    @apply text-umich-maze group-hover: opacity-90 hidden sm:block whitespace-nowrap ml-2 text-3xl font-semibold;
+  }
 
-#error_explanation {
-  @apply  border border-red-800 bg-red-50 p-4 rounded-lg mb-6; }
+  .branding-primary {
+    @apply text-umich-blue;
+  }
 
-#error_explanation h2 {
-  @apply pb-1  font-bold text-lg text-sky-700 ; }
+  .header-link {
+    @apply text-sky-50 hover: bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze px-2 py-2 rounded-md text-lg font-medium;
+  }
 
-#error_explanation ul {
-  @apply list-disc list-inside space-y-1 pb-6 text-red-700; }
+  .header-link-mobile {
+    @apply text-gray-300 hover: bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium;
+  }
+
+  .skip-to-content-link {
+    @apply sr-only font-bold text-2xl text-white focus-visible: not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline;
+  }
+
+  #error_explanation {
+    @apply border border-red-800 bg-red-50 p-4 rounded-lg mb-6;
+  }
+
+  #error_explanation h2 {
+    @apply pb-1 font-bold text-lg text-sky-700;
+  }
+
+  #error_explanation ul {
+    @apply list-disc list-inside space-y-1 pb-6 text-red-700;
+  }
+}
+
+@layer utilities {
+  .corner-ribbon {
+    @apply bg-red-700 text-red-50 pt-2 h-10 w-72 rotate-45 text-center absolute right-0 -mr-20 z-50 shadow-2xl
+  }
+
+  /* Different positions */
+  .corner-ribbon.top-left {
+    @apply -rotate-45 left-0 -ml-20 top-0 mt-10;
+  }
+
+  .corner-ribbon.top-right {
+    @apply rotate-45 right-0 -ml-20 top-0 mt-10;
+  }
+
+  .corner-ribbon.bottom-left {
+    @apply rotate-45 left-0 -ml-20 bottom-0 mb-10;
+  }
+
+  .corner-ribbon.bottom-right {
+    @apply -rotate-45 right-0 -ml-20 bottom-0 mb-10;
+  }
+
+  /* missing_alt_tags */
+  body[data-environment="development"] img[alt=""],
+  body[data-environment="development"] img:not([alt]) {
+    @apply border-4 border-red-700 border-dotted p-2;
+  }
+}
