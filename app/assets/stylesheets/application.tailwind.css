@@ -8,11 +8,11 @@
 
 @layer base {
   .branding-logo {
-    @apply text-umich-maze group-hover: opacity-90;
+    @apply text-umich-maze group-hover:opacity-90;
   }
 
   .branding-wordmark {
-    @apply text-umich-maze group-hover: opacity-90 hidden sm:block whitespace-nowrap ml-2 text-3xl font-semibold;
+    @apply text-umich-maze group-hover:opacity-90 hidden sm:block whitespace-nowrap ml-2 text-3xl font-semibold;
   }
 
   .branding-primary {
@@ -20,15 +20,15 @@
   }
 
   .header-link {
-    @apply text-sky-50 hover: bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze px-2 py-2 rounded-md text-lg font-medium;
+    @apply text-sky-50 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze px-2 py-2 rounded-md text-lg font-medium;
   }
 
   .header-link-mobile {
-    @apply text-gray-300 hover: bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium;
+    @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium;
   }
 
   .skip-to-content-link {
-    @apply sr-only font-bold text-2xl text-white focus-visible: not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline;
+    @apply sr-only font-bold text-2xl text-white not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline;
   }
 
   #error_explanation {
