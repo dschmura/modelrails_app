@@ -12,7 +12,9 @@
 
 - DEVELOPMENT
   - [Code](https://github.com/dschmura/modelrails_app)
-  - [Some opinions about documentation](documentation.md)
+  - [CSS Utilities](/development/css_utilities.md)
+    - [Corner Ribbons](/development/corner_ribbons.md)
+  - [Some opinions about documentation](/development/documentation.md)
 
 - SUPPORT
   - [Contact the team](#)

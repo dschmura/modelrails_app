@@ -1,0 +1,1 @@
+# ModelRails Application Template - Development![logo](https://raw.githubusercontent.com/dschmura/modelrails_app/main/app/assets/images/we_are_wads_mark.svg ':size=50 ') 
