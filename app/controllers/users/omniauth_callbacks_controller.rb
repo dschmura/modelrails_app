@@ -5,23 +5,23 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_reader :omni_auth_service, :user
 
   def facebook
-    handle_auth 'Facebook'
+    handle_auth "Facebook"
   end
 
   def twitter
-    handle_auth 'Twitter'
+    handle_auth "Twitter"
   end
 
   def github
-    handle_auth 'Github'
+    handle_auth "Github"
   end
 
   def google_oauth2
-    handle_auth 'Google'
+    handle_auth "Google"
   end
 
   def saml
-    handle_auth 'Saml'
+    handle_auth "Saml"
   end
 
   private
@@ -56,7 +56,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def auth
-    request.env['omniauth.auth']
+    request.env["omniauth.auth"]
   end
 
   def set_omni_auth_service
