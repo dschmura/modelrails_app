@@ -5,34 +5,41 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_reader :omni_auth_service, :user
 
   def facebook
-    handle_auth "Facebook"
+    handle_auth 'Facebook'
   end
 
   def twitter
-    handle_auth "Twitter"
+    handle_auth 'Twitter'
   end
 
-  def github(_lockable)
-    handle_auth "Github"
+  def github
+    handle_auth 'Github'
   end
 
   def google_oauth2
-    handle_auth "Google"
+    handle_auth 'Google'
   end
 
   def saml
-    handle_auth "Saml"
+    handle_auth 'Saml'
   end
 
   private
 
   def handle_auth(kind)
+    omni_auth_service_login
+    connect_omni_auth_service(kind)
+  end
+
+  def omni_auth_service_login
     if omni_auth_service.present?
       omni_auth_service.update(omni_auth_service_attrs)
     else
       user.omni_auth_services.create(omni_auth_service_attrs)
     end
+  end
 
+  def connect_omni_auth_service(kind)
     if user_signed_in?
       flash[:notice] = "Your #{kind} account was connected."
       redirect_to edit_user_registration_path
@@ -49,7 +56,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def auth
-    request.env["omniauth.auth"]
+    request.env['omniauth.auth']
   end
 
   def set_omni_auth_service
@@ -92,7 +99,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def create_user_services(user)
-    user.omni_auth_service.create(
+    user.omni_auth_services.create(
       provider: auth.provider,
       uid: auth.uid,
       expires_at: Time.at(auth.credentials.expires_at),
