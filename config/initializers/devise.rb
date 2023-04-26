@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'b64ff3ef1fd608d73aef25a1799e617839360cc9f18e86aa3f8ddf527afeb66f8252a39a40b692a1b6ed060c71937e5b831ae74d962dc3fc2b344a8c5e8ddb22'
+  config.secret_key = "b64ff3ef1fd608d73aef25a1799e617839360cc9f18e86aa3f8ddf527afeb66f8252a39a40b692a1b6ed060c71937e5b831ae74d962dc3fc2b344a8c5e8ddb22"
 
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
@@ -32,7 +32,10 @@ Devise.setup do |config|
 
   # OmniAuth Providers
 
-  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID], Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID],
+    Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+
+  config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true
 
   consumer_service_url = "dev_assertion_consumer_service_url"
   entity_id = "dev_entity_id"
