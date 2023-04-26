@@ -6,9 +6,9 @@ module ApplicationHelper
 
   def tailwind_classes_for(flash_type)
     {
-      notice: "bg-green-600 border-l-4 border-green-700 text-green-50 opacity-90 group-hover:opacity-100 ",
-      error: "bg-red-800 border-l-4 border-red-900 text-red-50 opacity-80 group-hover:opacity-100",
-      alert: "bg-red-800 border-l-4 border-red-900 text-red-50 opacity-80 group-hover:opacity-100"
+      notice: "bg-green-800 border-l-4 border-green-700 text-white opacity-90 group-hover:opacity-100 ",
+      error: "bg-red-800 border-l-4 border-red-900 text-white opacity-90 group-hover:opacity-100",
+      alert: "bg-red-800 border-l-4 border-red-900 text-white opacity-90 group-hover:opacity-100"
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
 end

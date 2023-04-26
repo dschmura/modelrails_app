@@ -1,0 +1,7 @@
+ <%- resource_class.omniauth_providers.each do |provider| %>
+  <%= button_to  omniauth_authorize_path(resource_name, provider), class: "omni-auth-button", alt: sign_in_with(provider), method: :post, :data => {turbo: "false"} do %>
+  <span class="sr-only"> <%= sign_in_with(provider) %> </span>
+  <%= inline_svg_tag("icons/#{OmniAuth::Utils.camelize(provider).underscore}", alt: sign_in_with(provider))%>
+  <% end %>
+<% end %>
+

@@ -1,10 +1,11 @@
+-# = console
 / This example requires Tailwind CSS v2.0+
 %nav.bg-umich-blue.mt-0.absolute.top-0.w-full{"data-controller" => "dropdown"}
   .mx-auto.px-2.sm:px-6.xl:container
     .relative.flex.items-center.justify-between.h-16
       .absolute.inset-y-0.left-0.flex.items-center.sm:hidden
         / Mobile menu button
-        %button.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-inset.focus:ring-white{"aria-controls" => "mobile-menu", "aria-expanded" => "false", "data-action" => "click->dropdown#toggle click@window->dropdown#hide", "data-dropdown-enter-timeout" => "100", "data-dropdown-entering-class" => "ease-out duration-100", "data-dropdown-invisible-class" => "opacity-0 scale-95", "data-dropdown-leave-timeout" => "75", "data-dropdown-leaving-class" => "ease-in duration-75", "data-dropdown-visible-class" => "opacity-100 scale-100", type: "button"}
+        %button.inline-flex.items-center.justify-center.p-2.rounded-md.text-gray-400.hover:text-white.hover:bg-gray-700.focus:outline-none.focus:ring-2.focus:ring-inset.focus:ring-white{"aria-controls" => "mobile-menu", "data-action" => "click->dropdown#toggle click@window->dropdown#hide", "data-dropdown-enter-timeout" => "100", "data-dropdown-entering-class" => "ease-out duration-100", "data-dropdown-invisible-class" => "opacity-0 scale-95", "data-dropdown-leave-timeout" => "75", "data-dropdown-leaving-class" => "ease-in duration-75", "data-dropdown-visible-class" => "opacity-100 scale-100", type: "button"}
           %span.sr-only Open main menu
           /
             Icon when menu is closed.
@@ -16,9 +17,9 @@
           %svg.hidden.h-6.w-6{"aria-hidden" => "true", fill: "none", stroke: "currentColor", "stroke-width" => "2", viewbox: "0 0 24 24", xmlns: "http://www.w3.org/2000/svg"}
             %path{d: "M6 18L18 6M6 6l12 12", "stroke-linecap" => "round", "stroke-linejoin" => "round"}
       .flex-1.flex.items-center.justify-center.sm:items-stretch.sm:justify-start.sm:justify-between
-        = link_to root_path, class: "group block branding-logo flex-shrink-0 flex" do
+        = link_to root_path, class: "group block branding-logo flex-shrink-0 flex " do
 
-          = inline_svg_tag("we_are_wads_mark", desc: "Of Course: Course Guide", alt: "APP_NAMWE", class: "block  h-8 fill-current ")
+          = inline_svg_tag("we_are_wads_mark", desc: t(:app_description), alt: "#{ t :app_name}", class: "block h-8 fill-current ")
           .branding-wordmark= "#{ t :app_name}"
 
         .hidden.sm:block.sm:ml-6
@@ -27,12 +28,12 @@
             = link_to "About", about_path, class: "header-link"
             = link_to "Contact", contact_path, class: "header-link"
             = link_to "Docs", docs_path, class: "header-link"
-      .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0{"data-controller" => "dropdown"}
+      .absolute.inset-y-0.right-0.flex.items-center.pr-2.sm:static.sm:inset-auto.sm:ml-6.sm:pr-0.z-50
         / Profile dropdown
         - if current_user
           .ml-3.relative.z-10
             %div
-              %button#user-menu-button.bg-gray-800.flex.text-sm.rounded-full.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{"aria-expanded" => "false", "aria-haspopup" => "true", "data-action" => "click->dropdown#toggle click@window->dropdown#hide", "data-dropdown-target" => "button", role: "button", type: "button"}
+              %button#user-menu-button.bg-gray-800.flex.text-sm.rounded-full.focus:outline-none.focus:ring-2.focus:ring-offset-2.focus:ring-offset-gray-800.focus:ring-white{ "aria-haspopup" => "true", "data-action" => "click->dropdown#toggle click@window->dropdown#hide", "data-dropdown-target" => "button", role: "button", type: "button"}
                 %span.sr-only Open user menu
 
                 = image_tag avatar_url_for(current_user), class: " h-8 w-8 rounded-full", alt: "#{current_user}"
