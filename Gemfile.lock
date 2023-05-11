@@ -435,6 +435,7 @@ DEPENDENCIES
   importmap-rails
   inline_svg
   jbuilder
+  launchy
   letter_opener_web (~> 2.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection

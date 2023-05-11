@@ -54,6 +54,7 @@ gem "omniauth-shibboleth"
 
 gem "omniauth-rails_csrf_protection"
 gem "valid_email2"
+gem 'acts_as_tenant'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

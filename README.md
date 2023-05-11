@@ -27,6 +27,12 @@ To run an individual test;
 The base application includes the hotwire-livereload gem to make development really really nice. When you run bin/dev the application is launched in development mode and live-reload is enabled. Anytime a change is made to a view, or stylesheet, or javascript whatever...the browser (if you have one loaded on localhost) will automatically refresh with the new changes. This is a tiny miricle...nay...a major miricle. 
 
 Other enhancements include;
+
+- Puma configured to automatically launch the browser when the server is started in development mode. Based on this blog: ["Automatically open the browser when the Rails server starts](https://mattbrictson.com/blog/open-browser-on-rails-start)
+
+
+>> Follow the instructions for the [Launchy Gem](https://github.com/copiousfreetime/launchy) to set a specific browser that is not the default
+
 - tailwindcss_breakpoints_indicator 
   This is a simple rails partial that is included for all environments except production. It provides a visual indication of which tailwindcss breakpoint the browser is utilizing for a give size. This is useful as a quick reference when designing. By default it is also on for staging environments so that people who are testing or doing QA for the app will be able to provide more specific feedback. i.e; "On the landing page, the main image becomes destorted in at the medium breakpoint." It will also be available in any screen captures that the user sends from a non-production environment.
   located at: app/views/layouts/utilities/_tailwindcss_breakpoints.html.erb
