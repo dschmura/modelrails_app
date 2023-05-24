@@ -10,6 +10,9 @@ module ModelrailsApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.autoload_paths += %W(#{config.root}/app/form_builders)
+
+    config.action_view.default_form_builder = "TailwindFormBuilder"
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -19,5 +22,8 @@ module ModelrailsApp
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.hosts = nil
+
+
+    
   end
 end
