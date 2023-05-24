@@ -14,7 +14,6 @@
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -27,4 +26,6 @@ class User < ApplicationRecord
   def image_url
     GravatarHelper.gravatar_url_for(email)
   end
+
+  validates :email, presence: true, 'valid_email_2/email': true
 end
