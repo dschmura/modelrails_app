@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.field_with_errors {
-  @apply border-2 border-red-700;
-}
-
 @layer base {
   .branding-logo {
     @apply text-umich-maze group-hover:opacity-90;
@@ -21,6 +17,10 @@
     @apply text-umich-blue;
   }
 
+  header {
+    @apply w-screen min-w-max;
+  }
+
   .header-link {
     @apply text-sky-50 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze px-2 py-2 rounded-md text-lg font-medium;
   }
@@ -29,8 +29,8 @@
     @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium;
   }
 
-  .omni-auth-button{
-    @apply inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50
+  .omni-auth-button {
+    @apply inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50;
   }
   .skip-to-content-link {
     @apply sr-only font-bold text-2xl text-white not-sr-only focus-within:bg-green-700 relative self-center flex justify-center focus-within:p-5 focus-within:underline focus-within:mt-16;
@@ -47,11 +47,19 @@
   #error_explanation ul {
     @apply list-disc list-inside space-y-1 pb-6 text-red-700;
   }
+
+  .invalid-field {
+    @apply bg-red-100 sm:text-sm;
+  }
+
+  .invalid-field-message {
+    @apply text-red-800  italic text-sm pl-2;
+  }
 }
 
 @layer utilities {
   .corner-ribbon {
-    @apply bg-red-700 text-red-50 pt-2 h-10 w-72 rotate-45 text-center absolute right-0 -mr-20 z-50 shadow-2xl
+    @apply bg-red-700 text-red-50 pt-2 h-10 w-72 rotate-45 text-center absolute right-0 -mr-20 z-50 shadow-2xl;
   }
 
   /* Different positions */
