@@ -3,28 +3,31 @@
  <%= link_to root_path, class: "group block mx-auto w-auto" do %>
       <div class="flex-shrink-0 flex text-sky-50 group-hover:opacity-90" >
         <%= inline_svg_tag("we_are_wads_mark", desc: "#{ t :app_description}", alt: "#{ t :app_name}", class: "block h-8 fill-current text-umich-maze ") %>
+        <span class="sr-only"><%="#{ t :app_name}" %></span>
       </div>
     <% end %>
-    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up for an account</h2>
+    <h1 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up for an account</h1>
   </div>
-  <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
+  <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-lg">
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "space-y-8") do |f| %>
+      <%= form_for resource, as: resource_name, url: registration_path(resource_name), class: "space-y-8 group error" do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="field pb-6 ">
-          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.label :password, class: "block text-sm font-medium text-gray-700"%>
-          <%= f.password_field :password, autocomplete: "new-password", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" %>
+        <div class="field pb-4 ">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email@host.domain" %>
+        </div>
+
+        <div class="field pb-6">
+
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "password" %>
+
         </div>
         <div class="field pb-4">
-          <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" %>
+
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-field-ds", placeholder: "password" %>
+     
         </div>
         <div>
+          
           <%= f.submit "Sign up", class: "flex w-full justify-center rounded-md border border-transparent bg-umich-blue mt-2 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"  %>
         </div>
       </form>

@@ -1,25 +1,3 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-gray-50">
-  <body class="h-full">
-  ```
--->
 <div class="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <%= link_to root_path, class: "group block mx-auto w-auto" do %>
@@ -31,20 +9,19 @@
   </div>
   <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "space-y-8") do |f| %>
+      <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field pb-6 ">
-          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" %>
         </div>
         <div class="field pb-4">
-          <%= f.label :password, class: "block text-sm font-medium text-gray-700"%>
           <%= f.password_field :password, autocomplete: "current-password", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" %>
         </div>
         <div class="field flex items-center justify-between py-4 text-sm">
           <% if devise_mapping.rememberable? %>
             <div class="flex items-center">
               <%= f.check_box :remember_me, class: "h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500" %>
-              <%= f.label :remember_me, class: "ml-2 block text-sm text-gray-900" %>
+              <%= f.label :remember_me, class: "-ml-3 -mt-6 block text-sm text-gray-900 whitespace-nowrap " %>
             </div>
           <% end %>
           <div>
