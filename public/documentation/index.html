@@ -75,6 +75,22 @@
   </script>
   
   <script src="//unpkg.com/docsify-mermaid@2.0.0/dist/docsify-mermaid.js"></script>
+
+  <!-- Update the browser url when links are clicked in the documentation -->
+  <script>// Inside the iframe's JavaScript code
+    document.addEventListener('click', function(event) {
+      var target = event.target;
+      if (target.tagName === 'A') {
+        event.preventDefault(); // Prevent the default link behavior
+        
+        var newUrl = target.href;
+        window.parent.history.pushState(null, '', newUrl); // Update the parent window's URL
+        
+        // You can also change the iframe's URL to match the clicked link
+        window.location.href = newUrl;
+      }
+    });
+    </script>
 </body>
 
 </html>
