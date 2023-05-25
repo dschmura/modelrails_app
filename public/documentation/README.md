@@ -1,8 +1,8 @@
 # ModelRails Application Template - Home ![logo](https://raw.githubusercontent.com/dschmura/modelrails_app/main/app/assets/images/we_are_wads_mark.svg ':size=50 ') 
 
-<div class="corner-ribbon">DRAFT</div>
+<div class="bg-red-700 text-red-50 pt-2 h-10 w-72 -rotate-45 text-center fixed  right-0 bottom-0 mb-32 -mr-14 z-50 shadow-2xl ">DRAFT: Please remove </div>
 
-- ***Repo:*** [github.com/repo/for/thing](github.com/repo/for/thing)
+- ***Repo:*** [git@github.com:dschmura/modelrails_app.git)
 - ***staging url:*** [modelrails-staging.lsa.umich.edu ](modelrails-staging.lsa.umich.edu )
 - ***production url:*** [modelrails-production.lsa.umich.edu](modelrails-production.lsa.umich.edu) 
 - ***release url:*** [modelrails.umich.edu](modelrails.umich.edu) 
@@ -22,11 +22,12 @@
 
 
 **Audiences:**
-  - [Potential Students]
-  - [Alumni]
+  - [Developers]
+  - [Project Managers]
+  - [Designers]
 
 **Additional Stakeholders:**
-  - [The chili advisory auxilary board]
+  - [The chili advisory auxiliary board]
 
 #### Description:
 
@@ -44,5 +45,6 @@ Welcome to the Modelrails Application Template Documentation...we are glad you a
 - [Like what that other app does, but slightly different for some reason. ] – [Description], [Status]
 - [Look how much work we did here on this reporting dashboard we built to show how much work it took to build the reporting dashboard!] – [Description], [Status]
 - [Room Scheduling] – [Description], [Status] …
+
 
 ![image](https://imgs.xkcd.com/comics/code_quality.png ':size=700')
