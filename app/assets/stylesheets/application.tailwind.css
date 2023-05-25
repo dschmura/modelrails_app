@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  .branding {
+    @apply text-umich-maze group-hover:opacity-90 flex w-auto ;
+  }
   .branding-logo {
-    @apply text-umich-maze group-hover:opacity-90;
+    @apply  group-hover:opacity-90 flex w-auto pr-4 ;
   }
 
   .branding-wordmark {
-    @apply text-umich-maze group-hover:opacity-90 sr-only sm:not-sr-only sm:visible  ml-2 w-full w-screen  max-w-xs text-3xl font-semibold tracking-tight whitespace-nowrap;
-    white-space: nowrap;
-    margin-left: 1rem;
+    @apply text-umich-maze group-hover:opacity-90 sr-only sm:not-sr-only sm:visible text-3xl font-semibold tracking-tight w-auto whitespace-nowrap;
   }
 
   .branding-primary {
