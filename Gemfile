@@ -80,6 +80,7 @@ group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "rails-erd"
   gem "ruby-lsp", require: false
+  gem "launchy"
 end
 
 group :test do
