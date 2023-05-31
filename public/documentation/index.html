@@ -80,19 +80,19 @@
 
     <!-- Update the browser url when links are clicked in the documentation -->
     <script>
-      // Inside the iframe's JavaScript code
-      document.addEventListener("click", function (event) {
-        var target = event.target;
-        if (target.tagName === "A") {
-          event.preventDefault(); // Prevent the default link behavior
+       // Inside the iframe's JavaScript code
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    if (target.tagName === "A") {
+      // event.preventDefault(); // Prevent the default link behavior
 
-          var newUrl = target.href;
-          window.parent.history.pushState(null, "", newUrl); // Update the parent window's URL
+      var newUrl = target.href;
+      var modifiedUrl = newUrl.replace("documentation", "docs");
 
-          // You can also change the iframe's URL to match the clicked link
-          window.location.href = newUrl;
-        }
-      });
+      window.parent.history.pushState(null, "", modifiedUrl); // Update the parent window's URL
+      // window.location.href = modifiedUrl; // Change the iframe's URL to match the modified link
+    }
+  });
     </script>
   </body>
 </html>

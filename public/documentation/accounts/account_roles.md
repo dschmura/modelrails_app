@@ -1,5 +1,5 @@
 # AccountRole:
-[Home](/) / [Accounts](/accounts/accounts.md)
+[Home](../README.md) / [Accounts](../accounts/accounts.md)
 
 Each account has a role. Roles are used to deliniate what actions are allowed on resources. Here are the default roles that are available within our syswtems by default (or configuration?). They are broken down by the scope that they are associated with. 
 

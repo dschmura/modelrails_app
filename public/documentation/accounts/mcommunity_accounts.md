@@ -1,5 +1,5 @@
 # MCommunity
-[Home](/) / [Accounts](/accounts/accounts.md) / [Requesting Access](/accounts/requesting_access.md)
+[Home](../README.md) / [Accounts](../accounts/accounts.md) / [Requesting Access](../accounts/requesting_access.md)
 
 We leverage MCommunity to allow our users to manage access to our apps. A MCommunity Account can be thought of a Team account that leverages MCommunity, the University of Michigan's identity management system to manage membership.
 
