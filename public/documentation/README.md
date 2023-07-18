@@ -46,5 +46,4 @@ Welcome to the Modelrails Application Template Documentation...we are glad you a
 - [Look how much work we did here on this reporting dashboard we built to show how much work it took to build the reporting dashboard!] – [Description], [Status]
 - [Room Scheduling] – [Description], [Status] …
 
-
 ![image](https://imgs.xkcd.com/comics/code_quality.png ':size=700')

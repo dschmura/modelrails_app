@@ -1,14 +1,14 @@
 # AccountRole:
-[Home](../README.md) / [Accounts](../accounts/accounts.md)
+[Home](./README.md) / [Accounts](accounts/README.md)
 
-Each account has a role. Roles are used to deliniate what actions are allowed on resources. Here are the default roles that are available within our syswtems by default (or configuration?). They are broken down by the scope that they are associated with. 
+Each account has a role. Roles are used to delineate what actions are allowed on resources. Here are the default roles that are available within our systems by default (or configuration?). They are broken down by the scope that they are associated with. 
 
 
 Basic Roles
 >  - Read: Can read and clone this resource.
 >  - Write: Can read, clone, and push to this resource.
->  Can also manage issues and pull requiconests.
->  - Maintain: Can read, clone, and update this resource. [* If the resource is a single entitity, versus if it is a collection?] They can also and some resource settings.
+>  Can also manage issues and pull requests.
+>  - Maintain: Can read, clone, and update this resource. [* If the resource is a single entity, versus if it is a collection?] They can also and some resource settings.
 >  - Owner: Can read, clone, and update this resource. Owners also manage resource settings, including adding collaborators.
 
   ### Application
@@ -22,7 +22,7 @@ Basic Roles
   By default, the admins will be W&ADS Rails team. The tasks will generally be done using the console? (**Initially?)
   
   > [MCommunity Method](MCommunity.md)
-    When creating a new application, create a MCommunity group folloing the pattern ```appname-admins``` and add the ```lsa-was-rails-admins``` group to it. 
+    When creating a new application, create a MCommunity group following the pattern ```appname-admins``` and add the ```lsa-was-rails-admins``` group to it. 
 
 
   |   Role                    |  Permissions                       | scope                                              |Description |
@@ -67,6 +67,6 @@ Basic Roles
   |   **recorder:**           |   [create, read, update]           | resources created by recorder or assigned by owner|
   |   **viewer:**             |   [read]                           | resources shared by owner                         |
 
-  ** ***The role of 'admin' is assigned to a MCommunity group to encourage transparency and redundency.***
-  *** ***Destroy may be implimented as 'archive' for certain roles and resources.***
+  ** ***The role of 'admin' is assigned to a MCommunity group to encourage transparency and redundancy.***
+  *** ***Destroy may be implemented as 'archive' for certain roles and resources.***
   **** ***If application allows users to invite external users?.***

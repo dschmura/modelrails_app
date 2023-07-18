@@ -1,5 +1,5 @@
 # Credentials
-[Home](../README.md) / [Development](../development/README.md)
+[Home](./README.md) / [Development](development/README.md)
 
 We use the standard Rails credentials system to manage sensitive information such as authorization credentials, api keys etc. This is a two part system that uses a master key to decrypt the credentials file. The master key is NEVER stored in the repository, but the credentials file is. (*By default, Ruby on Rails will add the appropriate .key file to the .gitignore file.*)
 

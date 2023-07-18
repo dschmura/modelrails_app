@@ -1,2 +1,2 @@
 # Team Account
-[Home](../README.md) / [Accounts](../accounts/accounts.md) / [Requesting Access](../accounts/requesting_access.md)
+[Home](./README.md) / [Accounts](accounts/README.md) / [Requesting Access](accounts/requesting_access.md)

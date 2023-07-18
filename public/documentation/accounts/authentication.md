@@ -1,5 +1,5 @@
 # Authentication:
-[Home](../README.md) / [Accounts](../accounts/accounts.md) / [Requesting Access](../accounts/requesting_access.md)
+[Home](./README.md) / [Accounts](accounts/README.md) / [Requesting Access](accounts/requesting_access.md)
 
 ModelRails supports three modes of authentication; Shibboleth , GoogleOAuth and Active Directory. Utilizing these methods allows us to provide authentication without storing passwords in our applications.
 

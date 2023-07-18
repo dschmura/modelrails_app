@@ -1,5 +1,5 @@
 # Form Builders
-[Home](../README.md) / [Development](../development/README.md)
+[Home](./README.md) / [Development](development/README.md)
 
 The ModelRails template uses custom form builders to add our customizations without sacrificing the niceties that Rails provides. The form builders are located in `app/form_builders/`.
 

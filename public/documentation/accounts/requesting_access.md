@@ -1,2 +1,2 @@
 # Requesting Access
-[Home](../README.md) / [Accounts](../accounts/accounts.md)
+[Home](./README.md) / [Accounts](accounts/README.md)

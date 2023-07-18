@@ -1,5 +1,5 @@
 # On Documentation
-[Home](../README.md) / [Development](../development/README.md)
+[Home](./README.md) / [Development](development/README.md)
 
 ___
 
@@ -67,13 +67,20 @@ In scenarios where we have a centralized 'knowledge base' system we are encourag
 
 Which links are included in the knowledge base will depend on the nature of the product. If the product is a module that is used by developers in another product for example, there would be one url pointing to the README file in the git repository. 
 
-
 ## README!!!!s
 
-Every product needs, at a minimum, an up to date README file that documents how to get started working with that product. It defines the required dependencies, setup steps etc...
+Every product's codebase needs, at a minimum, an up to date README file that documents how to get started working with that product. It defines the required dependencies, setup steps etc...
 
 The readme is ***NOT*** intended to be documentation for end-users. It is primarily focussed on developers and, possibly, people providing technical support. 
 
+The codebase README.md need the following:
+
+- [ ] A description of the product
+- [ ] Instructions for how a developer or support person can set up their environment to allow them to run it in their development environment. 
+  - [ ] Dependencies 
+  - [ ] Database setup/seed data
+  - [ ] Environment variables / configuration(s) for external APIs etc...
+- [ ] Instructions for running tests / verifying that the product is working as expected.
 
 
 ## What about Google Docs and being about to collaborate with non-developers on documentation?

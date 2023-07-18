@@ -1,5 +1,5 @@
 # Corner Ribbons
-[Home](../README.md) / [Development](../development/README.md)
+[Home](./README.md) / [Development](development/README.md)
 
 Corner Ribbons can be a helpful way to flag pages of your site. The Model Rails app template has them preconfigured in the ```@layer utilities {}``` section of the``` application.tailwind.css``` file. 
 

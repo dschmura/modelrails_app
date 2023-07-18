@@ -1,5 +1,5 @@
 # Multi-tenancy
-[Home](../README.md) / [Accounts](../accounts/accounts.md) / [Requesting Access](../accounts/requesting_access.md)
+[Home](./README.md) / [Accounts](accounts/README.md) / [Requesting Access](accounts/requesting_access.md)
 
 
 ModelRails is set up to support multi-tenancy. This means that you can have multiple accounts, each with their own data. This is useful for a number of reasons: you can have a separate account for each department, or you can have a separate account for each of your users. From this starting point, users can have greater flexibility in how they share data with each other.
