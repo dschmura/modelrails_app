@@ -1,0 +1,9 @@
+<!-- Mobile menu, show/hide based on menu state.-->
+<div class="sm:hidden" id="mobile-menu" aria-label="Global" >
+  <div class="px-2 pt-2 pb-3 space-y-1" data-dropdown-target="menu">
+    <%= link_to "Home", root_path, class: "header-link-mobile" %>
+    <%= link_to "About", about_path, class: "header-link-mobile" %>
+    <%= link_to "Contact", contact_path, class: "header-link-mobile" %>
+    <%= link_to "Docs", docs_path, class: "header-link-mobile" %>
+  </div>
+</div>

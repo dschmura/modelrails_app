@@ -136,15 +136,6 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    haml (6.1.1)
-      temple (>= 0.8.2)
-      thor
-      tilt
-    haml-rails (2.1.0)
-      actionpack (>= 5.1)
-      activesupport (>= 5.1)
-      haml (>= 4.0.6)
-      railties (>= 5.1)
     hashie (5.0.0)
     hotwire-livereload (1.2.3)
       listen (>= 3.0.0)
@@ -230,6 +221,8 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
+    omniauth-facebook (9.0.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-google-oauth2 (1.1.1)
       jwt (>= 2.0)
       oauth2 (~> 2.0.6)
@@ -396,9 +389,7 @@ GEM
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.29-x86_64-linux)
       railties (>= 6.0.0)
-    temple (0.10.2)
     thor (1.2.2)
-    tilt (2.2.0)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -446,7 +437,6 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   guard-rspec
-  haml-rails
   hotwire-livereload (~> 1.1)
   image_processing (~> 1.2)
   importmap-rails
