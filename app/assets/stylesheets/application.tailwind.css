@@ -4,10 +4,10 @@
 
 @layer base {
   .branding {
-    @apply text-umich-maze group-hover:opacity-90 flex w-auto ;
+    @apply text-umich-maze group-hover:opacity-90 flex w-auto;
   }
   .branding-logo {
-    @apply  group-hover:opacity-90 flex w-auto pr-4 ;
+    @apply group-hover:opacity-90 flex w-auto sm:pr-4;
   }
 
   .branding-wordmark {
@@ -27,7 +27,7 @@
   }
 
   .header-link-mobile {
-    @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium;
+    @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium text-center text-2xl ;
   }
 
   .omni-auth-button {

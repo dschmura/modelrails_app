@@ -1,23 +1,21 @@
 <header >
-  <nav class="bg-umich-blue mt-0 fixed lute top-0 w-full" data-controller="dropdown" aria-label="Global">
-    <div class="mx-auto px-2 sm:px-6 xl:container">
+  <nav class="bg-umich-blue mt-0 fixed lute top-0 w-full"  aria-label="Global">
+    <div class="mx-auto px-4 sm:px-7 xl:container">
       <div class="relative flex items-center justify-between h-16">
-
-        <%= render 'layouts/header/mobile_menu_button' %>
-        
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start sm:justify-between">
+          <%= render 'layouts/header/mobile_menu' %>
           <%= render 'layouts/header/word_mark' %>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
               <%= link_to "About", about_path, class: "header-link" %>
               <%= link_to "Contact", contact_path, class: "header-link" %>
               <%= link_to "Docs", docs_path, class: "header-link" %>
+              <%= render 'layouts/header/sign_in_button' %>
             </div>
           </div>
         </div>
-        <%= render 'layouts/header/sign_in_button' %>
+    
       </div>
     </div>
-    <%= render 'layouts/header/mobile_menu' %>
   </nav>
 </header>
