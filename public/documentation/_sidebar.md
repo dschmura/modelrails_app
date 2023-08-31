@@ -14,6 +14,7 @@
   - [Credentials](development/credentials.md)
   - [CSS Utilities](development/css_utilities.md)
     - [Corner Ribbons](development/corner_ribbons.md)
+  - [Favicons](development/favicons.md)
   - [Form Builders](development/form_builders.md)
   - [Some opinions about documentation](development/documentation.md)
 

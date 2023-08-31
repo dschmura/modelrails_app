@@ -80,6 +80,7 @@ group :development do
   gem "rails-erd"
   gem "ruby-lsp", require: false
   gem "launchy"
+  gem 'rails_real_favicon'
 end
 
 group :test do
