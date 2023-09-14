@@ -32,10 +32,10 @@ Devise.setup do |config|
 
   # OmniAuth Providers
 
-  config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID],
-    Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+  # config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID],
+  #   Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
 
-  config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true
+  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true
 
   consumer_service_url = "dev_assertion_consumer_service_url"
   entity_id = "dev_entity_id"
