@@ -87,13 +87,14 @@ Other enhancements include;
   - enter the app directory
     ``` cd app_name ```
 
-  - rename the app using Find and Replace 
-
-    ```
-    $ grep -rl modelrails  | xargs sed -i '' -e s@modelrails@app_name@g
-    $ grep -rl MODELRAILS_APP  | xargs sed -i '' -e s@MODELRAILS_APP@APP_NAME@g
-    $ grep -rl ModelrailsApp  | xargs sed -i '' -e s@ModelrailsApp@AppName@g  
-    ```
+  - run the setup script
+    ``` bin/setup ```
+    This will do the following:
+    - install all of the gems
+    - rename the to match the parent directory name 
+    - create the database
+    - remove old logs and temp files
+    - starts the app 
 
 ### Updating an existing application from this template 
   > ** Only for applications created using this template by following the steps above.
