@@ -27,6 +27,7 @@ FileUtils.chdir APP_ROOT do
   # Rename all occurrences of "modelrails", "MODELRAILS_APP", and "ModelrailsApp" to appropriate app names
   Find.find('./') do |path|
     next if path == './bin/setup'
+    next if path == './bin/setup'
     
     if File.file?(path)
       text = File.read(path)
@@ -53,3 +54,7 @@ FileUtils.chdir APP_ROOT do
   puts "\n== Starting application in development =="
   system! "bin/dev"
 end
+
+# Run the setup_github script
+require_relative '../setup_github'
+SetupGithub.setup
