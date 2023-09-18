@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require "fileutils"
+require "find"
+
+def main
+  # Run `gh auth status` and capture the output
+  gh_auth_status = `gh auth status 2>&1`
+
+  if gh_auth_status.include?('Logged in to github.com as')
+    # Extract username
+    username = gh_auth_status.match(/Logged in to github.com as (\w+)/)[1]
+    puts "Logged in as #{username}"
+
+
+
+    app_name = File.basename(Dir.getwd)
+    app_name_camel = app_name.split('_').map(&:downcase).join('')
+
+
+
+    # Ask user if they want to create a new repository
+    print "Would you like to create a new GitHub repository named #{username}/#{app_name_camel}? [y/N]: "
+    answer = gets.chomp.downcase
+
+    if answer == 'y'
+      system("gh repo create #{username}/#{app_name_camel}  --public")
+      puts "Successfully created the GitHub repository."
+      system("git remote add origin git@github.com:#{username}/#{app_name_camel}.git")
+      system("git branch -M main")
+      system("git push -u origin main")
+    else
+      puts "Skipped creating a GitHub repository."
+    end
+  else
+    puts 'You are not logged into GitHub.'
+    puts 'Please log in using `gh auth login`.'
+    puts 'For more instructions, please visit: https://docs.github.com/en/authentication/connecting-to-github-with-ssh'
+  end
+end
+
+main
