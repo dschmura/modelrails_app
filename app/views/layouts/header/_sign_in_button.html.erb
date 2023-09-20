@@ -1,7 +1,7 @@
-<div class="  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 " data-controller="dropdown"> 
+<div class="  flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 "> 
   <!-- Profile dropdown-->
   <% if current_user %>
-    <div class="sm:ml-3 relative z-10 mx-auto">
+    <div class="sm:ml-3 relative z-10 mx-auto" data-controller="dropdown">
       
         <button class="ml-2 sm:bg-gray-800 flex text-sm sm:w-auto  rounded-full ring-1 ring-offset-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white header-link-mobile pt-3 sm:p-0" id="user-menu-button"  aria-haspopup="true" data-action="click->dropdown#toggle click@window->dropdown#hide" data-dropdown-target="button" role="button" >
           <span class="sr-only">Open user menu</span>
