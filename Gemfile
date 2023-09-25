@@ -4,7 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.3"
+# gem "rails", "~> 7.0.3"
+gem "rails", "~> 7.1.0.beta1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -50,6 +51,7 @@ gem "inline_svg"
 gem "devise", "~> 4.8"
 gem "omniauth-google-oauth2"
 gem "omniauth-shibboleth"
+# gem "omniauth-facebook"
 
 gem "omniauth-rails_csrf_protection"
 gem "valid_email2"
@@ -65,7 +67,7 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "rspec-rails", "~> 6.0.0.rc1"
   gem "guard-rspec", require: false
-  gem "bullet", "~> 7.0"
+  # gem "bullet", "~> 7.0"
   gem "annotate", github: "excid3/annotate_models", branch: "rails7"
   gem "standard"
 end
