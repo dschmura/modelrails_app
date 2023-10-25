@@ -21,6 +21,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:shibboleth, :google_oauth2]
+  devise :pwned_password unless Rails.env.test?
   has_many :omni_auth_services, dependent: :destroy
   has_one_attached :avatar
 
@@ -29,4 +30,5 @@ class User < ApplicationRecord
   end
 
   validates :email, presence: true, 'valid_email_2/email': true
+  
 end

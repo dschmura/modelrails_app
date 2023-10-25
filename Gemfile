@@ -50,10 +50,10 @@ gem "bootsnap", require: false
 gem "inline_svg"
 
 gem "devise", "~> 4.8"
+gem 'devise-pwned_password'
 gem "omniauth-google-oauth2"
 gem "omniauth-shibboleth"
 # gem "omniauth-facebook"
-
 gem "omniauth-rails_csrf_protection"
 gem "valid_email2"
 gem 'acts_as_tenant'

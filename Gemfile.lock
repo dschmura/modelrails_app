@@ -117,6 +117,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-pwned_password (0.1.10)
+      devise (~> 4)
+      pwned (~> 2.0.0)
     diff-lcs (1.5.0)
     drb (2.1.1)
       ruby2_keywords
@@ -258,6 +261,7 @@ GEM
     public_suffix (5.0.3)
     puma (6.4.0)
       nio4r (~> 2.0)
+    pwned (2.0.2)
     racc (1.7.1)
     rack (3.0.8)
     rack-mini-profiler (3.1.1)
@@ -456,6 +460,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.8)
+  devise-pwned_password
   guard-rspec
   hotwire-livereload (~> 1.1)
   image_processing (~> 1.2)
