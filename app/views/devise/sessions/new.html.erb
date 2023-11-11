@@ -12,10 +12,10 @@
       <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field pb-6 ">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm", type: :email, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm", type: :email %>
         </div>
         <div class="field pb-4">
-          <%= f.password_field :password, autocomplete: "current-password", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm", type: :password, autocomplete: "password" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm", type: :password" %>
         </div>
         <div class="field flex items-center justify-between py-4 text-sm">
           <% if devise_mapping.rememberable? %>
