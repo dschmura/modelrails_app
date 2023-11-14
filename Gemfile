@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.0.preview2'
+ruby "3.3.0.preview2"
 # ruby file: ".tool-versions"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -50,16 +50,16 @@ gem "bootsnap", require: false
 gem "inline_svg"
 
 gem "devise", "~> 4.8"
-gem 'devise-pwned_password'
+gem "devise-pwned_password"
 gem "omniauth-google-oauth2"
 gem "omniauth-shibboleth"
 # gem "omniauth-facebook"
 gem "omniauth-rails_csrf_protection"
 gem "valid_email2"
-gem 'acts_as_tenant'
+gem "acts_as_tenant"
 # Use Sass to process CSS
 # gem "sassc-rails"
-gem 'honeybadger'
+gem "honeybadger"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
@@ -84,7 +84,7 @@ group :development do
   gem "rails-erd"
   gem "ruby-lsp", require: false
   gem "launchy"
-  gem 'rails_real_favicon'
+  gem "rails_real_favicon"
 end
 
 group :test do
@@ -92,7 +92,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-gem 'watir'
-gem 'nokogiri'
-gem 'mini_magick'
-
+gem "watir"
+gem "nokogiri"
+gem "mini_magick"

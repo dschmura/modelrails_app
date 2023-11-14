@@ -29,6 +29,5 @@ class User < ApplicationRecord
     GravatarHelper.gravatar_url_for(email)
   end
 
-  validates :email, presence: true, 'valid_email_2/email': true
-  
+  validates :email, presence: true, "valid_email_2/email": true
 end

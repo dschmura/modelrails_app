@@ -1,12 +1,11 @@
-
 class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   class_attribute :text_field_helpers, default: field_helpers - [:label, :check_box, :radio_button, :fields_for, :fields, :hidden_field, :file_field]
   #  leans on the FormBuilder class_attribute `field_helpers`
   #  you'll want to add a method for each of the specific helpers listed here if you want to style them
 
-  TEXT_FIELD_STYLE = 'block w-full appearance-none rounded-md border border-gray-300 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white '.freeze
-  SELECT_FIELD_STYLE = 'block bg-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white'.freeze
-  SUBMIT_BUTTON_STYLE = 'shadow bg-umich-blue focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-gray-200'.freeze
+  TEXT_FIELD_STYLE = "block w-full appearance-none rounded-md border border-gray-300 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white ".freeze
+  SELECT_FIELD_STYLE = "block bg-gray-200 text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none focus:bg-white".freeze
+  SUBMIT_BUTTON_STYLE = "shadow bg-umich-blue focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded hover:bg-gray-200".freeze
 
   text_field_helpers.each do |field_method|
     class_eval <<-RUBY_EVAL, __FILE__, __LINE__ + 1
