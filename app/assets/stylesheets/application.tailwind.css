@@ -4,14 +4,14 @@
 
 @layer base {
   .branding {
-    @apply text-umich-maze group-hover:opacity-90 flex w-auto;
+    @apply text-umich-maize group-hover:opacity-90 flex w-auto;
   }
   .branding-logo {
     @apply group-hover:opacity-90 flex w-auto sm:pr-4;
   }
 
   .branding-wordmark {
-    @apply text-umich-maze group-hover:opacity-90 sr-only sm:not-sr-only sm:visible text-3xl font-semibold tracking-tight w-auto whitespace-nowrap;
+    @apply text-umich-maize group-hover:opacity-90 sr-only sm:not-sr-only sm:visible text-3xl font-semibold tracking-tight w-auto whitespace-nowrap;
   }
 
   .branding-primary {
@@ -23,15 +23,15 @@
   }
 
   .header-link {
-    @apply text-sky-50 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze px-2 py-2 rounded-md text-lg font-medium;
+    @apply text-sky-50 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maize px-2 py-2 rounded-md text-lg font-medium;
   }
 
   .header-link-mobile {
-    @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maze block px-3 py-2 rounded-md text-base font-medium text-center text-2xl ;
+    @apply text-gray-300 hover:bg-opacity-60 hover:bg-sky-700 hover:text-umich-maize block px-3 py-2 rounded-md text-base font-medium text-center text-2xl ;
   }
 
   .header-link.active{
-    @apply bg-sky-700 text-umich-maze;
+    @apply bg-sky-700 text-umich-maize;
   }
 
   .active{

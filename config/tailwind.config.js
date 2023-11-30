@@ -16,7 +16,7 @@ module.exports = {
       },
       colors: {
         umich: {
-          maze: '#FFCF01',
+          maize: '#FFCB05',
           blue: '#00274c',
         },
     
