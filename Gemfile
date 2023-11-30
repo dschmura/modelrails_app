@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0.preview2"
+ruby "3.3.0dev"
 # ruby file: ".tool-versions"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -90,7 +90,7 @@ end
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
+  # gem "webdrivers"
 end
 gem "watir"
 gem "nokogiri"
