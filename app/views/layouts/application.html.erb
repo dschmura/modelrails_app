@@ -10,9 +10,7 @@
     <%= render 'application/favicon' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <% if Rails.env.development? %>
-      <%= javascript_include_tag "hotwire-livereload", defer: true %>
-    <% end %>
+    <%= hotwire_livereload_tags if Rails.env.development? %>
 
     <% if content_for? :head %>
       <%= yield :head %>
