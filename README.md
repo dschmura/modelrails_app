@@ -73,7 +73,7 @@ Other enhancements include;
     ```
     And make sure there is a corresponding #filters and #footer id elements on the page.
 
-    We added a ```.skip-to-content-link``` class in the main application.sass file to handle styling of the links. The styling utilizes tailwindcss utilities.
+    We added a ```.skip-to-content-link``` class in the main ```application.tailwind.css``` file to handle styling of the links. The styling utilizes tailwindcss utilities.
 
 ## Getting Started
 
