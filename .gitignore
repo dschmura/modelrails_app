@@ -36,3 +36,4 @@
 .DS_Store
 
 /config/credentials/development.key
+.env
