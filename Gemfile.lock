@@ -122,14 +122,24 @@ GEM
       devise (~> 4)
       pwned (~> 2.0.0)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
+    factory_bot (6.4.2)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.2)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     faraday (2.7.12)
       base64
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    ffaker (2.23.0)
     ffi (1.16.3)
     formatador (1.1.0)
     globalid (1.2.1)
@@ -412,7 +422,11 @@ GEM
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.1.0)
+    tailwindcss-rails (2.0.32-aarch64-linux)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.32-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.32-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.3.0)
     timeout (0.4.1)
@@ -448,8 +462,10 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   acts_as_tenant
@@ -460,6 +476,9 @@ DEPENDENCIES
   debug
   devise (~> 4.8)
   devise-pwned_password
+  dotenv-rails
+  factory_bot_rails
+  ffaker
   guard-rspec
   honeybadger
   hotwire-livereload (~> 1.1)
@@ -481,7 +500,7 @@ DEPENDENCIES
   rails-erd
   rails_real_favicon
   redis (~> 4.0)
-  rspec-rails (~> 6.0.0.rc1)
+  rspec-rails
   ruby-lsp
   selenium-webdriver
   sprockets-rails
@@ -528,10 +547,15 @@ CHECKSUMS
   devise (4.9.3) sha256=480638d6c51b97f56da6e28d4f3e2a1b8e606681b316aa594b87c6ab94923488
   devise-pwned_password (0.1.10) sha256=1027ce8a64e0ad90b832ea5fafc2c85420ce632ce7e1d1eb108d622c0613546d
   diff-lcs (1.5.0) sha256=49b934001c8c6aedb37ba19daec5c634da27b318a7a3c654ae979d6ba1929b67
+  dotenv (2.8.1) sha256=c5944793349ae03c432e1780a2ca929d60b88c7d14d52d630db0508c3a8a17d8
+  dotenv-rails (2.8.1) sha256=b05b81b7f4e51d1359e218d92279db1d84b12440f7118c9df19b5dfffb620f6c
   drb (2.2.0) sha256=e9e4af1cded3306cfe37e064a0086e302d5f40df9cb4d161d059a6bb3a75d40f
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
+  factory_bot (6.4.2) sha256=f236ff24212b721ef3794cf6a33c6c1f562da8a778264b907d58ab090fae6466
+  factory_bot_rails (6.4.2) sha256=0c384f626f9eb8afa50b50f4c2b3d70769e53b54cda4101e4da11f187be8e2e0
   faraday (2.7.12) sha256=ed38dcd396d2defcf8a536bbf7ef45e6385392ab815fe087df46777be3a781a7
   faraday-net_http (3.0.2) sha256=6882929abed8094e1ee30344a3369e856fe34530044630d1f652bf70ebd87e8d
+  ffaker (2.23.0) sha256=9d2dfb5cc284a92c8571bddcbe0c573127a2f3238f4b0aa56e08ccf3e4858498
   ffi (1.16.3) sha256=6d3242ff10c87271b0675c58d68d3f10148fabc2ad6da52a18123f06078871fb
   formatador (1.1.0) sha256=54e23e2af4d60bb9327c7fac62b29968e4cf28cee0111f726d0bdeadc85e06d0
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
@@ -643,7 +667,9 @@ CHECKSUMS
   standard-performance (1.2.1) sha256=a757913b44ba9724ca681789c911d5c0b65f8c6d2ded1e9e0add7c1cb56eef23
   stimulus-rails (1.3.0) sha256=19d138829c2d6e6cc22c2c12141d621a8db29400dc93be01dcc9dda2ce227e7c
   stringio (3.1.0) sha256=c1f6263ae03a15025e51194ab19b06b15e06adcaaedb7f5f6c06ab60f5d67718
+  tailwindcss-rails (2.0.32-aarch64-linux) sha256=8ad2d425e16268725faea6645ffe92d7d4cbbe9881b015083e3426c930ab25e6
   tailwindcss-rails (2.0.32-arm64-darwin) sha256=7e688e2e1c98dc33b03ff8aff630c510092c643c8e5914dbc3c0cfa0ae0cae94
+  tailwindcss-rails (2.0.32-x86_64-linux) sha256=1901b94c9e081fd85d319fc4527b49108782068488f1ee61a6713bf7949ff3f1
   thor (1.3.0) sha256=1adc7f9e5b3655a68c71393fee8bd0ad088d14ee8e83a0b73726f23cbb3ca7c3
   timeout (0.4.1) sha256=6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a
   turbo-rails (1.5.0) sha256=b426cc762fb0940277729b3f1751a9f0bd269f5613c1d62ac73e5f0be7c7a83e
