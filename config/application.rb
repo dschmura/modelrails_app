@@ -9,11 +9,11 @@ Bundler.require(*Rails.groups)
 module ModelrailsApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
     config.autoload_paths += %W[#{config.root}/app/form_builders]
 
     config.action_view.default_form_builder = "TailwindFormBuilder"
-
+    config.exceptions_app = self.routes
     # Please, see https://guides.rubyonrails.org/autoloading_and_reloading_constants.html#config-autoload-lib-ignore.
     config.autoload_lib(ignore: %w[assets tasks])
 
