@@ -1,12 +1,11 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0dev"
-# ruby file: ".tool-versions"
+# ruby "3.3.0.rc1"
+ruby file: ".tool-versions"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-# gem "rails", "~> 7.0.3"
-gem "rails", "~> 7.1.1"
+gem "rails", "~> 7.1.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -83,7 +82,7 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "hotwire-livereload", "~> 1.1"
+  gem "hotwire-livereload"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler", require: ["enable_rails_patches", "rack-mini-profiler"]
   gem "letter_opener_web"
