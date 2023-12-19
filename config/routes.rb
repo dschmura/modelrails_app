@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   devise_scope :user do
     # Redirests signing out users back to sign-in
@@ -20,4 +22,7 @@ Rails.application.routes.draw do
   root "static_pages#index"
   resources "feedbacks", only: [:create]
   resources :screenshots
+
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
 end
