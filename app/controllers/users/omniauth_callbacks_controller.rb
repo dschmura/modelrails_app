@@ -35,7 +35,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if omni_auth_service.present?
       omni_auth_service.update(omni_auth_service_attrs)
     else
-      user.omni_auth_services.create(omni_auth_service_attrs)
+      user.connected_accounts.create(omni_auth_service_attrs)
     end
   end
 
@@ -99,7 +99,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def create_user_services(user)
-    user.omni_auth_services.create(
+    user.connected_accounts.create(
       provider: auth.provider,
       uid: auth.uid,
       expires_at: Time.at(auth.credentials.expires_at),

@@ -22,7 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:shibboleth, :google_oauth2]
   devise :pwned_password unless Rails.env.test?
-  has_many :omni_auth_services, dependent: :destroy
+  has_many :connected_accounts, dependent: :destroy
   has_one_attached :avatar
 
   def image_url

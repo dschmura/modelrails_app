@@ -1,6 +1,6 @@
-class CreateOmniAuthServices < ActiveRecord::Migration[7.0]
+class CreateConnectedAccounts < ActiveRecord::Migration[7.0]
   def change
-    create_table :omni_auth_services do |t|
+    create_table :connected_accounts do |t|
       t.references :user, null: false, foreign_key: true
       t.string :provider
       t.string :uid

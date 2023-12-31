@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_02_24_175753) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "omni_auth_services", force: :cascade do |t|
+  create_table "connected_accounts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider"
     t.string "uid"
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_02_24_175753) do
     t.text "auth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_omni_auth_services_on_user_id"
+    t.index ["user_id"], name: "index_connected_accounts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,5 +70,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_02_24_175753) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "omni_auth_services", "users"
+  add_foreign_key "connected_accounts", "users"
 end

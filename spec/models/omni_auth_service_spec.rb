@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: omni_auth_services
+# Table name: connected_accounts
 #
 #  id                  :bigint           not null, primary key
 #  access_token        :string
@@ -16,7 +16,7 @@
 #
 # Indexes
 #
-#  index_omni_auth_services_on_user_id  (user_id)
+#  index_connected_accounts_on_user_id  (user_id)
 #
 # Foreign Keys
 #

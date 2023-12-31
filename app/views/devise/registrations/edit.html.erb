@@ -36,10 +36,10 @@
     <%= f.submit "Update", class: "flex w-full justify-center rounded-md border border-transparent bg-umich-blue mt-2 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2" %>
   </div>
   <div class="mt-2 text-sm ">
-    <%- if current_user.omni_auth_services.any? %>
+    <%- if current_user.connected_accounts.any? %>
       <span class="font-semibold">Your connected OAuth accounts: </span>
       <%- resource_class.omniauth_providers.each do |provider| %>
-        <%- if current_user.omni_auth_services.pluck(:provider).include?(provider.to_s)  %>
+        <%- if current_user.connected_accounts.pluck(:provider).include?(provider.to_s)  %>
           <%= " #{OmniAuth::Utils.camelize(provider)}"%>
         <% end %>
       <% end %>
@@ -49,7 +49,7 @@
         <h2>Connect additional OAuth Account(s)</h2>
         <div class="mt-4 grid grid-flow-col auto-cols-fr gap-3 justify-center ">
           <%- resource_class.omniauth_providers.each do |provider| %>
-            <%- unless current_user.omni_auth_services.pluck(:provider).include?(provider.to_s)  %>
+            <%- unless current_user.connected_accounts.pluck(:provider).include?(provider.to_s)  %>
               <div>
                 <span class="sr-only"><%= "Sign in with #{sign_in_with(provider)}" %></span>
                 <%= button_to inline_svg_tag("icons/#{OmniAuth::Utils.camelize(provider).underscore}", alt: "Sign in with #{OmniAuth::Utils.camelize(provider)}"), omniauth_authorize_path(resource_name, provider), method: :post, :data => {turbo: "false"}, class: "inline-flex w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50" %>
