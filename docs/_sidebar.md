@@ -12,6 +12,7 @@
 - [DEVELOPMENT](development/README.md)
   - [Code](https://github.com/dschmura/modelrails_app)
   - [Credentials](development/credentials.md)
+    -[Email setup](development/email_configuration.md)
   - [CSS Utilities](development/css_utilities.md)
     - [Corner Ribbons](development/corner_ribbons.md)
   - [Custom Error Handling](developer/custom_errors.md)
