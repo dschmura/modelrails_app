@@ -12,17 +12,16 @@
     <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 ">
       <%= form_for resource, as: resource_name, url: registration_path(resource_name), class: "space-y-8 group error" do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
+
         <div class="field pb-4 ">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email@host.domain", type: :email, autocomplete: "email" %>
         </div>
 
         <div class="field pb-6">
-
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "password", type: :password, autocomplete: "new-password" %>
 
         </div>
         <div class="field pb-4">
-
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "text-field-ds", placeholder: "password", type: :password, autocomplete: "new-password" %>
      
         </div>

@@ -89,6 +89,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     }
   end
 
+  # def create_user_personal_account
+  # account = User.account.create(
+  #   type: :personal
+  #   # belongs_to :user, dependent: :destroy
+  # )
+  end
+
   def create_user
     user = User.create(
       email: auth.info.email,

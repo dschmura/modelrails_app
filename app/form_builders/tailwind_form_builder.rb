@@ -57,7 +57,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
     label = tailwind_label(object_method, label_options, field_options)
     error_label = error_label(object_method, field_options)
 
-    @template.content_tag("div", label + error_label, {class: "flex flex-col items-start "})
+    @template.content_tag("div", label + error_label, {class: "flex flex-row items-start "})
   end
 
   def tailwind_label(object_method, label_options, field_options)
@@ -67,7 +67,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
       [nil, {}]
     end
 
-    label_classes = label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
+    label_classes = label_opts[:class] || "block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 "
     label_classes += " text-yellow-800 dark:text-yellow-400" if field_options[:disabled]
     label(object_method, text, {
       class: label_classes
@@ -77,7 +77,7 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
   def error_label(object_method, options)
     if errors_for(object_method).present?
       error_message = @object.errors[object_method].collect(&:downcase).join(", ")
-      tailwind_label(object_method, {text: error_message, class: "text-red-800 font-semibold italic text-base rounded bg-green-400 error-message"}, options)
+      tailwind_label(object_method, {text: error_message, class: "text-red-800 font-semibold italic text-base rounded bg-green-400 error-message "}, options)
     end
   end
 
@@ -100,7 +100,6 @@ class TailwindFormBuilder < ActionView::Helpers::FormBuilder
 
   def errors_for(object_method)
     return unless @object.present? && object_method.present?
-
     @object.errors[object_method]
   end
 end
