@@ -2,17 +2,17 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = false
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-    Bullet.add_footer = false
+    # Bullet.enable = true
+    # Bullet.alert = false
+    # Bullet.bullet_logger = true
+    # Bullet.console = true
+    # Bullet.rails_logger = true
+    # Bullet.add_footer = false
   end
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
-  config.hotwire_livereload.listen_paths << Rails.root.join("public/documentation/")
+  # config.hotwire_livereload.listen_paths << Rails.root.join("public/documentation/")
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
