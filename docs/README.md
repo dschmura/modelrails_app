@@ -1,4 +1,4 @@
-# ModelRails Application Template - Home ![logo](https://raw.githubusercontent.com/dschmura/modelrails_app/main/app/assets/images/we_are_wads_mark.svg ':size=50 ') 
+# ModelRails Application Template - Home ![logo](https://raw.githubusercontent.com/dschmura/modelrails_app/main/app/assets/images/site_mark.svg ':size=50 ') 
 
 <div class="bg-red-700 text-red-50 pt-2 h-10 w-72 -rotate-45 text-center fixed  right-0 bottom-0 mb-32 -mr-14 z-50 shadow-2xl ">DRAFT: Please remove </div>
 
