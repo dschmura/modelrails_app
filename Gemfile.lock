@@ -383,6 +383,12 @@ GEM
       language_server-protocol (~> 3.17.0)
       prism (>= 0.19.0, < 0.22)
       sorbet-runtime (>= 0.5.10782)
+    ruby-lsp-rails (0.3.0)
+      actionpack (>= 6.0)
+      activerecord (>= 6.0)
+      railties (>= 6.0)
+      ruby-lsp (>= 0.14.0, < 0.15.0)
+      sorbet-runtime (>= 0.5.9897)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.0)
       ffi (~> 1.12)
@@ -494,6 +500,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails
   ruby-lsp
+  ruby-lsp-rails
   selenium-webdriver
   sprockets-rails
   standard
@@ -643,6 +650,7 @@ CHECKSUMS
   rubocop-performance (1.20.2) sha256=1bb1fa8c427fac7ba3c8dd2decb9860f23cb2d6c40350bedc88538de8875c731
   ruby-graphviz (1.2.5) sha256=1c2bb44e3f6da9e2b829f5e7fd8d75a521485fb6b4d1fc66ff0f93f906121504
   ruby-lsp (0.14.0) sha256=b37d79a0c8e61b2efc208753bb84f84a4af6c9347c7bc41215bc4a6153a86de3
+  ruby-lsp-rails (0.3.0) sha256=5e4a548d9c47122b10cdfc797f3d9d6ec4051b12c8cc5e099f27a93a5fdba976
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby-vips (2.2.0) sha256=3be4fcf4ec77a33bbf25e4f9a9d02b21844f6c39c61af2a8221f699d5683739b
   ruby2_keywords (0.0.5) sha256=ffd13740c573b7301cf7a2e61fc857b2a8e3d3aff32545d6f8300d8bae10e3ef

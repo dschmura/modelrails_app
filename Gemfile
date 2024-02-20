@@ -90,6 +90,7 @@ group :development do
   gem "ruby-lsp", require: false
   gem "launchy"
   gem "rails_real_favicon"
+  gem "ruby-lsp-rails"
 end
 
 gem "watir"
