@@ -5,7 +5,6 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}',
-    './public/documentation/**/*.{erb,haml,html,slim,md}',
     './vendor/javascript/tailwindcss-stimulus-components.js'
 
   ],
