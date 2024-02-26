@@ -37,6 +37,8 @@ FileUtils.chdir APP_ROOT do
                           .gsub('MODELRAILS_APP', app_name_upcase)
                           .gsub('ModelrailsApp', app_name_camel)
                           .gsub('Model Rails Template', app_name_camel)
+                          .gsub('staging_domain', "#{app_name}-staging.com")
+                          .gsub('production_domain', "#{app_name}-production.com")
                           
   
       # Write changes to the file if any replacements were made

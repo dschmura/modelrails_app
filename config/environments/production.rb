@@ -71,7 +71,31 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "modelrails_app_production"
 
+  # The `perform_caching` option determines whether or not Action Mailer will
+  # cache emails. When set to `true`, Action Mailer will cache emails to improve
+  # performance. This can be useful if your application sends out a lot of emails
+  # that are identical or very similar, as it can reduce the amount of work the
+  # server has to do.
+  # When set to `false`, which means that Action Mailer will not cache emails.
+  # This might be because the emails your application sends are unique, so caching
+  # wouldn't provide a performance benefit. Or it might be to avoid potential issues
+  # with stale or incorrect emails being sent out due to caching.
   config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_options = {from: "DEFAULT_FROM@production_domain"}
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = "https://production_domain"
+  config.action_mailer.default_url_options = {host: host}
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.sendgrid.net",
+    port: "587",
+    authentication: :plain,
+    user_name: "apikey",
+    password: ENV["SENDGRID_API_KEY"],
+    domain: "root_domain",
+    enable_starttls_auto: true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
