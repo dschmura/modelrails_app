@@ -37,13 +37,34 @@ Devise.setup do |config|
 
   # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true
 
-  consumer_service_url = "dev_assertion_consumer_service_url"
-  entity_id = "dev_entity_id"
-  idp_login_url = "login_url"
-  idp_logout_url = "logout_url"
-  idp_fingerprint = "fingerprint"
+  # idp_login_url = Rails.application.credentials.staging_idp_sso_target_url
+  # idp_logout_url = Rails.application.credentials.staging_idp_slo_target_url
+  # idp_fingerprint = Rails.application.credentials.staging_idp_cert_fingerprint
 
-  config.omniauth :shibboleth,
+  idp_login_url = "https://shib-idp-staging.dsc.umich.edu/idp/profile/SAML2/Redirect/SSO"
+  idp_logout_url = "https://shib-idp-staging.dsc.umich.edu/cgi-bin/logout?https://lsa.umich.edu/"
+  idp_fingerprint = "D2:37:57:5A:AA:6E:01:C4:22:4D:BE:37:89:8E:B4:59:40:9B:14:1F:DC:EA:CC:CD:E1:DB:7E:95:12:FD:AD:08"
+
+  # consumer_service_url = Rails.application.credentials.dev_assertion_consumer_service_url
+  # entity_id = Rails.application.credentials.dev_entity_id
+
+  consumer_service_url = "http://localhost:3000/users/auth/saml/callback"
+  entity_id = "Test localhost MiClassrooms"
+
+  if Rails.env.staging?
+    consumer_service_url = Rails.application.credentials.staging_assertion_consumer_service_url
+    entity_id = Rails.application.credentials.staging_entity_id
+  end
+
+  if Rails.env.production?
+    idp_login_url = Rails.application.credentials.production_idp_sso_target_url
+    idp_logout_url = Rails.application.credentials.production_idp_slo_target_url
+    idp_fingerprint = Rails.application.credentials.production_idp_cert_fingerprint
+    consumer_service_url = Rails.application.credentials.production_assertion_consumer_service_url
+    entity_id = Rails.application.credentials.production_entity_id
+  end
+
+  config.omniauth :saml,
     assertion_consumer_service_url: consumer_service_url,
     issuer: entity_id,
     idp_sso_service_url: idp_login_url,
@@ -58,8 +79,57 @@ Devise.setup do |config|
     idp_cert_fingerprint: idp_fingerprint,
     idp_cert_fingerprint_algorithm: "http://www.w3.org/2000/09/xmldsig#sha256",
     allowed_clock_drift: 10,
-    private_key: Rails.application.credentials.service_provider_private_key,
-    certificate: Rails.application.credentials.service_provider_certificate,
+    # private_key: Rails.application.credentials.service_provider_private_key,
+    # certificate: Rails.application.credentials.service_provider_certificate,
+    private_key: "-----BEGIN PRIVATE KEY-----
+                                              MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDhUsWxxnOTNRl+
+                                              C+yZ7sk+V9BgVLMT0kOYOXg9QjSY17JruCI6f1qcEE9/05tLtYBIB4RYcITqNIZR
+                                              cZsnuxJhBbhCr+HaB4+eHBrreLRbY02t9lNJDGbc5QMr7XeQTsuA0hDQNtFWQSBN
+                                              kfaPbfinaWgo0oK/RwX/Vura7Stqa2g+e4Znna/Boe3aPuNUOz7jeMWvm7Kw7XlS
+                                              w6USvevjHR0KG3yPfrFjqn9pv2cu0rLjg7Wb8gSUYcC6a6+3B9ZUgIYWMgL5gux1
+                                              8g+jhlmwxCD/69AeKPOfwjDTxFrGBXHb50T+NQFYEYI5j/2spDbehAK5WH0b594s
+                                              UCPOUBZFAgMBAAECggEBAKlPRgfgY+YAZ2hkU2QTnpo+5/AKlQlW3L3cqTH2tokG
+                                              wyXYFbg5C//q7aHSgoWwG3WEWHkQC3/k+ezm3bxMAHJxFtTdTmtDdTJMUhoP+A4X
+                                              nz4RsuFX9U8Usn5mkIoZ+yaQMlwSZNhYVYqUHF4IN2isdrz9+Yr7NlF4oT7iKdZq
+                                              98vjqLU5DYoofI7393bcAtBdNYRY6VYaC5VbI713dhWKyQqbLm0QnAq4LYi7QL05
+                                              3bbnbpzqSZs+6O7b1vrR4MXyHl9Lx9vdOftxOpJFfaloLmaIP5voZaqsfeizjXIo
+                                              +DNocsWsL6qnWClL7c3p4HherXA/wQ0SFZefW4yCPUECgYEA9BqV+1TJuzqiAZoI
+                                              q0ty9Fw4bV6pYGxHlkAhLFrKFDuWnww/VKM1i5gBK1Tki+farY8uiyZUy9sQntxq
+                                              OCD9gMqlDdQe1T+9RR1ca5Vq4JgRYlDhzyzZ5Vh79ZzKeFwpgUiQOvbgPaU2+HuC
+                                              IpWJmDSg/PirwAYRcCKTrH4ErjUCgYEA7E3h7rFmIgoBw7yP8/345MFhfcC87zdG
+                                              ha9VmyfMENp7UUr9Ko6ucJb+i8yncjfihSgOarSyzD578OSz3A8pMHgMPYtLgjv6
+                                              eKJRpPj+8wB0B/vqkVCA8ASBB0qJINVXUv8p8kv/jy8rpAnLtv4hzqujT4kIxBwA
+                                              mLrIHBymCdECgYEAh9evtXEm3nmvpIKK5oCTVWdow3yVd6JqaDQCAgP4RzAuDw6q
+                                              w7gb2TZbGDkjArShXkq7FRbcw6GCa1WwCtJZIO4k0kBEdFoHQ0omn3xEQP5/Vh46
+                                              u6dzDw2h1jpN9pMbSeYO1bGDcurZX4ikEAj1zG0lVgIw2ijGVYf4dFqg0i0CgYEA
+                                              hS6sHQS9BIhRUEmRdLn6sqtPUDn2AnlL9QLKI+V9PS52fG3gXEEIjgp8MrzIzzYy
+                                              JExcO8XWVAkPf8jWmjutQlUWyQUeLKuzUpRhobJ4turVer6ACSCvWxeexUY8HVZA
+                                              nlWUBazRv5idZxniSCPZWAsiwyv/1c/Wgj4blMSMzFECgYA+AbpfrDm+auLwHlab
+                                              tGFsLCA2FjI2NR+edLu2JDlnSBigGoyehUKFPLVS1gLBDgx/r99Y5mcsGLRyOFsI
+                                              1nDnoEN7EuUILUdWeVkFjmGEDHDDnsiguWRmuoiEt6FrHDodeh/JOhHaROaFjIVx
+                                              sxrNfxEGCnIOpj7XjzRhxx7JPg==",
+    certificate: "-----BEGIN CERTIFICATE-----
+                                               MIIDajCCAlICCQCiRrGDL7ZxPDANBgkqhkiG9w0BAQsFADB3MQswCQYDVQQGEwJV
+                                               UzERMA8GA1UECAwITWljaGlnYW4xEjAQBgNVBAcMCUFubiBBcmJvcjEfMB0GA1UE
+                                               CgwWVW5pdmVyc2l0eSBPZiBNaWNoaWdhbjEgMB4GA1UECwwXTFNBIFRlY2hub2xv
+                                               Z3kgU2VydmljZXMwHhcNMjExMTAzMTkxODM0WhcNMjYxMTAyMTkxODM0WjB3MQsw
+                                               CQYDVQQGEwJVUzERMA8GA1UECAwITWljaGlnYW4xEjAQBgNVBAcMCUFubiBBcmJv
+                                               cjEfMB0GA1UECgwWVW5pdmVyc2l0eSBPZiBNaWNoaWdhbjEgMB4GA1UECwwXTFNB
+                                               IFRlY2hub2xvZ3kgU2VydmljZXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+                                               AoIBAQDhUsWxxnOTNRl+C+yZ7sk+V9BgVLMT0kOYOXg9QjSY17JruCI6f1qcEE9/
+                                               05tLtYBIB4RYcITqNIZRcZsnuxJhBbhCr+HaB4+eHBrreLRbY02t9lNJDGbc5QMr
+                                               7XeQTsuA0hDQNtFWQSBNkfaPbfinaWgo0oK/RwX/Vura7Stqa2g+e4Znna/Boe3a
+                                               PuNUOz7jeMWvm7Kw7XlSw6USvevjHR0KG3yPfrFjqn9pv2cu0rLjg7Wb8gSUYcC6
+                                               a6+3B9ZUgIYWMgL5gux18g+jhlmwxCD/69AeKPOfwjDTxFrGBXHb50T+NQFYEYI5
+                                               j/2spDbehAK5WH0b594sUCPOUBZFAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAL0b
+                                               Kd9bphnHF1ZWlzrECPvEikgJBv3WGgCC/RkoDr9Pt0kO22Xz5Yoa01WJyULq3f7K
+                                               BI4evC63k9mZK87cdvUdbCdermtGe0JCUkwM9zQKvDYiHSsTXPLuDAwmBk9ljk6V
+                                               RNLasX5du3Zo+0YYcewh6vbe2jRWUHfrLyImIWVEhrY+Iw2mK+RdvMfvRNDW6x4s
+                                               PaZ4sFNaQDrsfKS0v1KCQ8LFgtSIVo4xu8uxTtnxSYU/AfPsWeK+OxRuvqaQh380
+                                               0fybMf8VASqFRbXU4p9FAKIdrJLs9gcw3BGfCKxrFaXdJWy54F94lyJR7Ngo3gsl
+                                               iFQhZ7xkxipmq7+0kiE=
+                                               -----END CERTIFICATE-----",
+
     security: {want_assertions_signed: true, want_assertions_encrypted: true}
 
   # config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']
