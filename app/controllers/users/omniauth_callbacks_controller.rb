@@ -51,7 +51,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def user_is_stale?
     return unless user_signed_in?
-
     current_user.last_sign_in_at < 15.minutes.ago
   end
 
@@ -94,7 +93,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   type: :personal
   #   # belongs_to :user, dependent: :destroy
   # )
-  end
+  # end
 
   def create_user
     user = User.create(
