@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
-  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
+  get "errors/not_found"
+  get "errors/internal_server_error"
+  devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks", sessions: "users/sessions"} do
+    delete "sign_out", to: "users/sessions#destroy", as: :destroy_user_session
+  end
+
   devise_scope :user do
     # Redirests signing out users back to sign-in
     get "users", to: "devise/sessions#new"

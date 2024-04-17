@@ -8,13 +8,13 @@
 #
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
-Devise.setup do |config|
+Devise.setup do |config| # rubocop:disable Metrics/BlockLength
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = "b64ff3ef1fd608d73aef25a1799e617839360cc9f18e86aa3f8ddf527afeb66f8252a39a40b692a1b6ed060c71937e5b831ae74d962dc3fc2b344a8c5e8ddb22"
+  config.secret_key = "b64ff3ef1fd608d73aef25a1799e617839360cc9f18e86aa3f8ddf527afeb66f8252a39a40b692a1b6ed060c71937e5b831ae74d962dc3fc2b344a8c5e8ddb22" # rubocop:disable Style/StringLiterals,Layout/LineLength
 
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
@@ -24,30 +24,21 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
-  # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
-
-  # Configure the parent class responsible to send e-mails.
-  # config.parent_mailer = 'ActionMailer::Base'
-
   # OmniAuth Providers
 
-  # config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID],
-  #   Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu]
+  # config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:APP_ID], Rails.application.credentials.google_oauth2[:APP_SECRET], scope: "userinfo.email, userinfo.profile", prompt: "select_account", image_aspect_ratio: "square", image_size: 50, hd: %w[umich.edu lsa.umich.edu] # rubocop:disable Layout/LineLength
 
-  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true
+  # config.omniauth :facebook, Rails.application.credentials.facebook[:APP_ID], Rails.application.credentials.facebook[:APP_SECRET], scope: "email", info_fields: "email, name", image_size: "square", secure_image_url: true # rubocop:disable Layout/LineLength
 
-  consumer_service_url = "dev_assertion_consumer_service_url"
-  entity_id = "dev_entity_id"
-  idp_login_url = "login_url"
-  idp_logout_url = "logout_url"
-  idp_fingerprint = "fingerprint"
+  # Uncomment to enable SAML authentication
+  # ** Requires credentials to be set for each environment **
+  # EDITOR="code --wait" rails credentials:edit --environment development
 
-  config.omniauth :shibboleth,
-    assertion_consumer_service_url: consumer_service_url,
-    issuer: entity_id,
-    idp_sso_service_url: idp_login_url,
-    idp_slo_service_url: idp_logout_url,
+  config.omniauth :saml,
+    assertion_consumer_service_url: Rails.application.credentials.saml[:consumer_service_url],
+    issuer: Rails.application.credentials.saml[:entity_id],
+    idp_sso_target_url: Rails.application.credentials.saml[:idp_login_url],
+    idp_slo_target_url: Rails.application.credentials.saml[:idp_logout_url],
     name_identifier_format: "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
     attribute_statements: {email: ["urn:oid:0.9.2342.19200300.100.1.3"],
                            name: ["urn:oid:2.16.840.1.113730.3.1.241"],
@@ -55,11 +46,11 @@ Devise.setup do |config|
                            person_affiliation: ["urn:oid:1.3.6.1.4.1.5923.1.1.1.1"],
                            principal_name: ["urn:oid:1.3.6.1.4.1.5923.1.1.1.6"]},
     request_attributes: {},
-    idp_cert_fingerprint: idp_fingerprint,
+    idp_cert_fingerprint: Rails.application.credentials.saml[:idp_fingerprint],
     idp_cert_fingerprint_algorithm: "http://www.w3.org/2000/09/xmldsig#sha256",
     allowed_clock_drift: 10,
-    private_key: Rails.application.credentials.service_provider_private_key,
-    certificate: Rails.application.credentials.service_provider_certificate,
+    private_key: Rails.application.credentials.saml[:private_key],
+    certificate: Rails.application.credentials.saml[:certificate],
     security: {want_assertions_signed: true, want_assertions_encrypted: true}
 
   # config.omniauth :google_oauth2, ENV['GOOGLE_OAUTH_CLIENT_ID'], ENV['GOOGLE_OAUTH_CLIENT_SECRET']

@@ -51,9 +51,10 @@ gem "inline_svg"
 gem "devise", "~> 4.8"
 gem "devise-pwned_password"
 gem "omniauth-google-oauth2"
-gem "omniauth-shibboleth"
-# gem "omniauth-facebook"
+
+gem "omniauth-saml", "~> 2.1"
 gem "omniauth-rails_csrf_protection"
+# gem "omniauth-facebook"bin/dev
 gem "valid_email2"
 gem "acts_as_tenant"
 # Use Sass to process CSS
